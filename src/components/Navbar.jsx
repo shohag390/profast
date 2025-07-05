@@ -10,12 +10,12 @@ const navlink = [
         display: "Home"
     },
     {
-        path: "/services",
-        display: "Services"
-    },
-    {
         path: "/about",
         display: "About Us"
+    },
+    {
+        path: "/services",
+        display: "Services"
     },
     {
         path: "/pricing",
@@ -33,7 +33,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <nav className='container mx-auto lg:px-[120px] md:px-[50px] px-[20px] lg:h-[11vh] md:h-[9vh] h-[8vh] flex items-center justify-between bg-[#fff]'>
+        <nav className='lg:px-[120px] md:px-[50px] px-[20px] lg:h-[11vh] md:h-[9vh] h-[8vh] flex items-center justify-between bg-[#fff] sticky top-0 left-0 z-50 shadow'>
             {/* Logo */}
             <Link className='flex items-end' to={"/"}>
                 <img className='lg:h-[50px] md:h-[40px] h-[35px]' src={logo} alt="image" />
@@ -63,11 +63,11 @@ const Navbar = () => {
                 <div>
                     {
                         !user ? (
-                            <Link className='px-[30px] py-[10px] bg-[#ACC857] text-[#fff] rounded-full' to={"/login"}>
+                            <Link className='lg:px-[35px] md:px-[25px] px-[20px] lg:py-[12px] md:py-[9px] py-[8px] bg-[#ACC857] hover:bg-[#9bb256] duration-500 text-[#fff] rounded-full capitalize btn border-[2px] border-[#fff]' to={"/login"}>
                                 Sign In
                             </Link>
                         ) : (
-                            <button className='px-[30px] py-[10px] bg-[#ACC857] text-[#fff] rounded-full'>
+                            <button className='lg:px-[35px] md:px-[25px] px-[20px] lg:py-[12px] md:py-[9px] py-[8px] bg-[#ACC857] hover:bg-[#9bb256] duration-500 text-[#fff] rounded-full capitalize btn border-[2px] border-[#fff]'>
                                 Profile
                             </button>
                         )
@@ -75,20 +75,26 @@ const Navbar = () => {
                 </div>
 
                 {/* Phone Menu bar Open Button */}
-                <button className='' onClick={() => setOpen(!open)}>
+                <button className='lg:hidden' onClick={() => setOpen(!open)}>
                     {
-                        !open ? <IoIosMenu />
-                            : <IoCloseOutline />
+                        !open ? <IoIosMenu className='text-[25px]' />
+                            : <IoCloseOutline className='text-[25px]' />
                     }
                 </button>
             </div >
 
             {/* Phone Display Menu */}
-            <ul className='flex flex-col items-center justify-center gap-[30px] md:hidden'>
+            <ul className={`flex flex-col items-center justify-center gap-[30px] md:h-[91vh] h-[92vh] w-full bg-[#fff] absolute md:top-[9vh] top-[8vh] md:hidden duration-500 ${open ? "-left-0" : "-left-[100%]"}`}>
                 {
                     navlink?.map((link, index) => (
                         <li key={index}>
-                            <NavLink to={link?.path}>
+                            <NavLink
+                                onClick={() => setOpen(!open)}
+                                className={(navClass) =>
+                                    navClass.isActive ? "text-[#ACC857]" : "hover:text-[#ACC857]"
+                                }
+                                to={link?.path}
+                            >
                                 {link?.display}
                             </NavLink>
                         </li>

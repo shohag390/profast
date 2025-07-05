@@ -7,3 +7,14 @@ html {
     background: #eaeced;
     scroll-behavior: smooth;
 }
+
+.btn {
+    box-shadow: 0px 0px 1px #808080cc;
+}
+
+.hero-banner {
+    background-image: url("./assets/banner/banner.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
