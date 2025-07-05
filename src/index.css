@@ -18,3 +18,9 @@ html {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.banner_two {
+    background-image: url("./assets/image/be-a-merchant-bg.png");
+    background-position: top;
+    background-repeat: no-repeat;
+}
