@@ -1,5 +1,6 @@
 import React from 'react';
 import image from '../../assets/image/service.png';
+import SectionHeader from '../../components/SectionHeader';
 
 
 const services = [
@@ -46,12 +47,7 @@ const services = [
 const Services = () => {
     return (
         <div className='lg:px-[120px] md:px-[50px] px-[20px] lg:py-[50px] md:py-[45px] py-[35px] bg-[#03373D]'>
-            <h4 className='text-[25px] lg:font-bold font-semibold text-[#fff] text-center'>
-                Our Services
-            </h4>
-            <p className='text-[#DADADA] text-center'>
-                Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal packages to <br /> business shipments — we deliver on time, every time.
-            </p>
+            <SectionHeader header={"Our Services"} paragraph={"Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal packages to business shipments — we deliver on time, every time."} headerColor={"#fff"} paraColor={"#DADADA"} />
 
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 lg:gap-[25px] md:gap-[20px] gap-[15px] lg:pt-[25px] md:pt-[20px] pt-[15px]'>
                 {
